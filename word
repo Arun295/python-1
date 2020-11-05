@@ -1,0 +1,57 @@
+#intermediate project 2
+import random
+print('welcome to the word guess')
+name=input("Enter your name: ")
+print("hello",name)
+lives=(6,7,8)# we can write it as lives=random.randint(1,10)
+life=random.choice(lives)
+print("you haver(",life,")chances to find hidden word")
+words=('parrot','peakcock','sparrow','eagle')
+wordss=('ant','roch','fly')
+wordsss=('dog','cat','pig')
+clue=(words,wordss,wordsss)
+clue_user=random.choice(clue)
+_word=random.choice(clue_user)
+x=int(input("'1' for clue if not press '2'"
+            "'chance will be reduced if clue is used'::", ))
+guesses=" "
+l=10
+if x == 1:
+    life = life - 1
+    if clue_user == wordss:
+        print("insects")
+        print("your chances are", life)
+    elif clue_user == words:
+        print("birds")
+        print("your chances are", life)
+    elif clue_user == wordsss:
+        print("animals")
+        print("your chances are", life)
+else:
+    print("proceed")
+while l>1:
+    failed=0
+    for char in _word:
+        if char in guesses:
+           print(char)
+        else:
+          print("*")
+          failed+=1
+    if failed==0:
+        print("win")
+        print("the word is",_word)
+        break
+    guess = input("guess a character in word:")
+    guesses += guess
+    if guess not in _word:
+        life=life-1
+        print("wrong")
+        print("you left",life,"chances")
+    if guess ==_word:
+        print("win")
+        break
+    if life==0:
+        print("you loose")
+        print("the word is",_word)
+        break
+
